@@ -218,17 +218,19 @@
                         <p>Zde bude řešení.</p>
                     </div>
                     <script>
-                        const helo = "nazdar";
+                        const helo = "Ahoj";
 
-                        let name = "jmeno",
-                            prijmeni = "prijmeni";
-                        let vaha = 60,
+                        let name = "Marecek",
+                            prijmeni = "Pero";
+                        let vaha = 70,
                             vyska = 180;
                         let vystup = helo + " " + name + " " + prijmeni;
                         console.log(vystup);
 
                         const sedmy = document.getElementById("sedmy");
-                        sedmy.innerText = vystup;
+                        sedmy.innerHTML =
+                            vystup +
+                            `<br>moje vaha je ${vaha} a vyska ${vyska}`;
                     </script>
                 </div>
                 <div class="col-sm-6 bg-secondary text-light p-5">
@@ -253,14 +255,14 @@
                         const osmy = document.getElementById("osmy");
 
                         function changeColor(r, g, b) {
-                            osmy.style.backgroundColor = `rgb(r,g,b)`;
+                            osmy.style.backgroundColor = `rgb(${r},${g},${b})`;
                         }
-                        osmy.addEventListener(
-                            "mouseenter",
+                        changeColor(0, 0, 0);
+
+                        osmy.addEventListener("mouseenter", () =>
                             changeColor(255, 255, 255),
                         );
-                        osmy.addEventListener(
-                            "mouseleave",
+                        osmy.addEventListener("mouseleave", () =>
                             changeColor(0, 0, 0),
                         );
                     </script>
@@ -337,9 +339,11 @@
                             </li>
                         </ol>
                     </blockquote>
-                    <div class="bg-light p-3" id="getDay"></div>
+                    <div class="bg-light p-3" id="getDay">
+                        <a id="link" href="#">click</a>
+                    </div>
                     <script>
-                        const id = document.getElementById("getDay");
+                        const id = document.getElementById("link");
                         id.onclick = denVTydnu;
 
                         function denVTydnu() {
